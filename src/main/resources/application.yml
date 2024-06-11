@@ -1,0 +1,48 @@
+db:
+  username: postgres
+  password: root
+  driver: PostgresDriver
+  url: postgres:5432
+  hosts: localhost,127.0.0.1
+  properties:
+    first: 1
+    last: 2
+    key: value
+  pool:
+    size: 10
+    timeout: 20
+  pools:
+    - size : 10
+      timeout: 20
+    - size: 5
+      timeout: 6
+logging:
+  level:
+    root: warn
+    comm.database.pool.ConnectionPool: INFO
+  file:
+    name: comm.ex
+    path: /
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crm
+    username: postgres
+    password: root
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        hbm2ddl:
+          auto: validate
+    open-in-view: false
+  messages:
+    basename: messages
+app:
+  image:
+    bucket: /Users/artemlaptev/IdeaProjects/SpringStart/images
